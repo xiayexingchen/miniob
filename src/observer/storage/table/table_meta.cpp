@@ -95,6 +95,18 @@ RC TableMeta::init(int32_t table_id, const char *name, int field_num, const Attr
   return RC::SUCCESS;
 }
 
+//create a drop function
+RC TableMeta::drop_index(const char *index_name) {
+  for (int i = 0; i < (int)indexes_.size(); i++) {
+    if (strcmp(indexes_[i].name(), index_name) == 0) {
+      indexes_.erase(indexes_.begin() + i);
+      return RC::SUCCESS;
+    }
+  }
+  return RC::SCHEMA_INDEX_NOT_EXIST;
+}
+
+
 RC TableMeta::add_index(const IndexMeta &index)
 {
   indexes_.push_back(index);

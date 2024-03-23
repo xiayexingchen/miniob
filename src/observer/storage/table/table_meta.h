@@ -40,6 +40,9 @@ public:
 
   RC add_index(const IndexMeta &index);
 
+  //create a function
+  RC drop_index(const char *index_name);
+
 public:
   int32_t                       table_id() const { return table_id_; }
   const char                   *name() const;

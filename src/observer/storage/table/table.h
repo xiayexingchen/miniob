@@ -50,6 +50,17 @@ public:
   RC create(int32_t table_id, const char *path, const char *name, const char *base_dir, int attribute_count,
       const AttrInfoSqlNode attributes[]);
 
+
+  /**
+   * drop a table
+   * should drop index
+   * 
+  */
+  RC drop_index(const char *index_name);
+  RC drop_index(int idx);
+  RC drop_all_indexes();
+
+
   /**
    * 打开一个表
    * @param meta_file 保存表元数据的文件完整路径
